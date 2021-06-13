@@ -105,7 +105,7 @@ namespace restlessmedia.Module.Azure
 
     private static bool TryCast<T, TOut>(T value, out TOut result)
     {
-      result = default;
+      result = default(TOut);
 
       if (value is TOut)
       {
