@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
-    <AssemblyTitle>restlessmedia.Module.Azure.Table</AssemblyTitle>
-    <Product>restlessmedia.Module.Azure.Table</Product>
+    <AssemblyTitle>restlessmedia.Module.Azure</AssemblyTitle>
+    <Product>restlessmedia.Module.Azure</Product>
     <Description>Module Azure Table library.</Description>
     <Copyright>Copyright restlessmedia 2021</Copyright>
     <Version>0.1.0</Version>
@@ -10,7 +10,7 @@
     <FileVersion>0.1.0</FileVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <Authors>Phil Cooper</Authors>
-    <PackageId>restlessmedia.Module.Azure.Table</PackageId>
+    <PackageId>restlessmedia.Module.Azure</PackageId>
     <Company>restlessmedia</Company>
     <AssemblyName>restlessmedia.Module.Azure</AssemblyName>
     <RootNamespace>restlessmedia.Module.Azure</RootNamespace>

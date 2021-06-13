@@ -1,11 +1,11 @@
 using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("restlessmedia.Module.Azure.Table.Tests")]
+[assembly: AssemblyTitle("restlessmedia.Module.Azure.Tests")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("restlessmedia.Module.Azure.Table.Tests")]
+[assembly: AssemblyProduct("restlessmedia.Module.Azure.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
