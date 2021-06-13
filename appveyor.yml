@@ -9,7 +9,7 @@ before_build:
 install:
   nuget sources add -Name AppVeyorAccount -source https://ci.appveyor.com/nuget/restlessmedia-fqb6idr6vwjb -UserName %APPVEYOR_USERNAME% -password "%APPVEYOR_PASSWORD%"
 build:
-  project: restlessmedia.Module.Azure.Table.sln
+  project: restlessmedia.Module.Azure.sln
   publish_nuget: true
   include_nuget_references: true
   verbosity: minimal
