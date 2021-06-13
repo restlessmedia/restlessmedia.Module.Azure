@@ -1,4 +1,5 @@
 ﻿using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
 using restlessmedia.Module.Azure.Configuration;
 using System;
 using System.Diagnostics;
@@ -28,6 +29,38 @@ namespace restlessmedia.Module.Azure
       CloudStorageAccount storageAccount = CreateAccountFromSettings();
       var cloudTable = await GetOrCreateTableAsync(storageAccount, name);
       return new Table(cloudTable);
+    }
+
+    public async Task<IBlobContainer> GetOrCreateContainerAsync(string name, bool publicBlobs)
+    {
+      var account = CreateAccountFromSettings();
+      var cloudBlobClient = account.CreateCloudBlobClient();
+      var blobContainer = cloudBlobClient.GetContainerReference(name);
+
+      try
+      {
+        bool exists = await blobContainer.ExistsAsync();
+
+        if (!exists)
+        {
+          await blobContainer.CreateAsync();
+
+          if (publicBlobs)
+          {
+            await blobContainer.SetPermissionsAsync(new BlobContainerPermissions
+            {
+              PublicAccess = BlobContainerPublicAccessType.Blob
+            });
+          } // else, leave as default which will probably be private
+        }
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine($"An error checking container existance and/or container creation failed. {e.Message}.");
+        throw;
+      }
+
+      return new CloudBlobContainer(blobContainer);
     }
 
     /// <summary>

@@ -7,11 +7,11 @@ using System.Web.Http;
 
 namespace SampleProject.Controllers
 {
-  public class HomeController : ApiController
+  public class MessageController : ApiController
   {
     private readonly IPublicMessageService _publicMessageService;
 
-    public HomeController(IPublicMessageService publicMessageService)
+    public MessageController(IPublicMessageService publicMessageService)
     {
       _publicMessageService = publicMessageService ?? throw new ArgumentNullException(nameof(publicMessageService));
     }
