@@ -5,9 +5,9 @@
     <Product>restlessmedia.Module.Azure</Product>
     <Description>Module Azure Table library.</Description>
     <Copyright>Copyright restlessmedia 2021</Copyright>
-    <Version>0.1.0</Version>
-    <AssemblyVersion>0.1.0</AssemblyVersion>
-    <FileVersion>0.1.0</FileVersion>
+    <Version>0.1.1</Version>
+    <AssemblyVersion>0.1.1</AssemblyVersion>
+    <FileVersion>0.1.1</FileVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <Authors>Phil Cooper</Authors>
     <PackageId>restlessmedia.Module.Azure</PackageId>

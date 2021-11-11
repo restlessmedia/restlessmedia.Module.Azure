@@ -11,7 +11,11 @@ namespace restlessmedia.Module.Azure
       containerBuilder.RegisterType<StorageAccount>().SingleInstance();
       containerBuilder.Register<IBlobContainerAsyncFactory>(provider => provider.Resolve<StorageAccount>().GetOrCreateContainerAsync);
       containerBuilder.Register<TableAsyncFactory>(provider => provider.Resolve<StorageAccount>().GetOrCreateTableAsync);
-      containerBuilder.Register<IBlobStoreFactory>(provider => name => new BlobStore(name, provider.Resolve<IBlobContainerAsyncFactory>()));
+      containerBuilder.Register<IBlobStoreFactory>(provider =>
+      {
+        var factory = provider.Resolve<IBlobContainerAsyncFactory>();
+        return (name) => new BlobStore(name, factory);
+      });
     }
   }
 }
