@@ -57,8 +57,7 @@ namespace restlessmedia.Module.Azure
     // <inheritdoc />
     public virtual async Task<(bool, ICloudBlob)> ExistsAsync(string name)
     {
-      var blobContainer = await GetContainerAsync();
-      var blob = blobContainer.GetBlockBlobReference(name);
+      var blob = await GetBlobReferenceAsync(name);
       var exists = await blob.ExistsAsync();
       return (exists, blob);
     }
@@ -68,6 +67,13 @@ namespace restlessmedia.Module.Azure
     {
       var (exists, blob) = await ExistsAsync(name);
       return exists ? blob : null;
+    }
+
+    // <inheritdoc />
+    public virtual async Task<ICloudBlob> GetBlobReferenceAsync(string name)
+    {
+      var blobContainer = await GetContainerAsync();
+      return blobContainer.GetBlockBlobReference(name);
     }
 
     /// <summary>

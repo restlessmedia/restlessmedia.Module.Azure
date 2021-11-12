@@ -25,5 +25,12 @@ namespace restlessmedia.Module.Azure
     Task<ICloudBlob> UploadFromStreamAsync(string name, string contentType, Stream stream);
 
     Task<Stream> OpenWriteAsync(string name, string contentType);
+
+    /// <summary>
+    /// Returns a reference for the given <paramref name="name"/>. This doesn't guarantee the blob exists.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    Task<ICloudBlob> GetBlobReferenceAsync(string name);
   }
 }
